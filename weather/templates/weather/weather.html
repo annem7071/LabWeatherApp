@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Weather Report</title>
+    <link rel="stylesheet" href="/static/weather/style.css" />
+    
+</head>
+<body>
+    <script src="/static/weather/weather.js"></script>
+    <!--UOS logo-->
+    <section style="background-color:rgb(0,70,130)">
+        <div style="margin-left: 3px">
+            <img src ="/static/weather/uos-logo.png" width="144px" height="44px">
+        </div>
+    </section>
+    <!--header box-->
+    <section class = "greeting-box">
+        <div>
+            <h1>My Weather Report</h1>
+            <h2>Welcome....</h2>
+        </div>
+    </section>
+    <!--marquee scroller-->
+    <section class ="marquee-box">
+        <marquee behavior="scroll" direction="left" id="marquee"></marquee>
+    </section>
+
+    <!--city searchbar-->
+    <section class = "search-box"
+    style = "background-image: url(/static/weather/metofficegovuk_heroXLarge.jpeg); height: 200px" >
+        <form id="add-city-form"
+        style = "align-items: center;">
+            <label for="city-input">Enter city name:</label>
+            <input type="text" id="city-input" name="city">
+            <button type="submit" id="add-button">Add City</button>
+        </form>
+    </section>
+    <!--adding the cities and the weather info to be displayed-->
+    <section>
+        <div id="cities-container" class="weather-container">
+
+        </div>
+    </section>
+    <!--footer-->
+    <footer>
+        <section style = 'background-color: lightgray;'>
+            <div>
+                <p style=" text-align: right;">by am04340 :D</p>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>
