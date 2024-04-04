@@ -36,12 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 console.error('Error fetching weather data:', error);
-                showNotification('The are you have entered does not exist. Please try again.');
             });
     }
 
 
-    function showNotification(message) {
+    /*function showNotification(message) {
         const notification = document.getElementById('notification');
         notification.textContent = message;
         notification.style.display = 'block';
@@ -49,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             notification.style.display = 'none';
         }, 3000); 
-    } 
+    } */
 
     // Function to display weather data on the web page
     function displayWeather(data, cityName) {
@@ -59,15 +58,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const weatherBox = document.createElement('div');
         weatherBox.classList.add('weather-box');
     
+        // display of the weather
         const weatherData = document.createElement('p');
         weatherData.classList.add('weather-data');
         weatherData.textContent = `${cityName}: ${temperature}°C, ${description}`;
         weatherBox.appendChild(weatherData);
     
+        // weather icom image
         const weatherImage = document.createElement('img');
         weatherImage.classList.add('weather-image');
 
-        //image source based on weather conditions
+        //picks image based off weather conditions
         const iconUrl = getWeatherIcon(description);
         weatherImage.src = iconUrl;
         weatherImage.alt = 'Icon';
@@ -79,9 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
         deleteButton.classList.add('delete-button');
         weatherBox.appendChild(deleteButton);
 
-        // Event listener for delete button
+        // actions for when delete button is clicked, the box is removed from the screen
         deleteButton.addEventListener('click', function() {
-            // Remove the weather box when the delete button is clicked
             weatherBox.remove();
             alert('Area has been deleted');
         });
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('cities-container').appendChild(weatherBox);
     }
 
-      // Function to get weather icon URL based on weather conditions
+      // Function to get the correct weather icon based on weather conditions in the area
       function getWeatherIcon(description) {
 
         let iconName = '';
@@ -102,36 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'cloudy':
                 iconName = 'cloudy';
                 break;
-            // Add more cases for other weather conditions as needed
             default:
                 return '/static/weather/icons/clear-day.jpg'
         }
-
-        // Construct the URL for the weather icon based on the icon name
         return `/static/weather/icons/${iconName}.png`;
     }
-
-
-
-        
-        /* iconName = description.toLowerCase();
-
-        if (iconName = 'clear'){
-            return '/static/weather/icons/clear-day.png';
-        }
-        else if (iconName = 'cloudy'){
-            return '/static/weather/icons/cloudy.png';
-        }
-        else if (iconName = 'partially cloudy'){
-            return '/static/weather/icons/partially-cloudy-day.png';
-        }
-        else{
-            return'/static/weather/icons/noimage.png';
-        }*/
-      
-
-    
-    
 
     // Function to handle form submission and adding a new city
     function addCity(event) {
