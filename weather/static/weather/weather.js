@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Weather data: ', data);
                 // calls displayWeather function if area entered exists in database
                 displayWeather(data, cityName); 
-                showNotification('City added successfully');
+                alert('City added successfully');
 
                 const weatherDescription = data.days[0].conditions;
                 const temperature = data.days[0].temp;
@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    
 
     function showNotification(message) {
         const notification = document.getElementById('notification');
@@ -50,9 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             notification.style.display = 'none';
         }, 3000); 
-    }
+    } 
 
-    // Function to display weather data on the UI
+    // Function to display weather data on the web page
     function displayWeather(data, cityName) {
         const temperature = data.days[0].temp;
         const description = data.days[0].conditions;
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         //delete button
         const deleteButton = document.createElement('deletebutton');
-        deleteButton.textContent = 'Delete (X)';
+        deleteButton.textContent = '(Delete-X)';
         deleteButton.classList.add('delete-button');
         weatherBox.appendChild(deleteButton);
 
@@ -84,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
         deleteButton.addEventListener('click', function() {
             // Remove the weather box when the delete button is clicked
             weatherBox.remove();
-            showNotification('Area has been deleted');
+            alert('Area has been deleted');
         });
     
         document.getElementById('cities-container').appendChild(weatherBox);
@@ -146,8 +145,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Runs fetchWeather function and clears search box after 
         fetchWeather(cityName);
-        cityInput.value = ''; // Clear the input field after adding the city
+        cityInput.value = ''; 
     }
 
     // Event listener for form submission and adding a new city
