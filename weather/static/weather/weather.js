@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
             // Add more cases for other weather conditions as needed
             default:
-                return '/static/weather/icons/noimage.jpg'
+                return '/static/weather/icons/clear-day.jpg'
         }
 
         // Construct the URL for the weather icon based on the icon name
