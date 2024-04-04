@@ -16,6 +16,8 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -26,8 +28,8 @@ SECRET_KEY = 'django-insecure-#a0x)@7*r#depep#1xt38m%6&buk6ig(-v52s&v&nbfcw6sm^d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-APP_NAME = os.environ.get("LabWeatherApp")
-ALLOWED_HOSTS = [f"{APP_NAME}.fly.dev"]
+
+ALLOWED_HOSTS = []
 
 
 # Application definition
